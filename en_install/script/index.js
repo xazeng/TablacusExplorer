@@ -2936,6 +2936,14 @@ g_basic =
 					var FV = GetFolderView(Ctrl, pt);
 					FV && Lock(FV.Parent, FV.Index, true);
 				},
+				"Go to Main Path": function (Ctrl, pt)
+				{
+					var FV = GetFolderView(Ctrl, pt);
+					if (FV && FV.Data.MainPath && FV.Data.MainPath.length)
+					{
+						FV.Navigate(FV.Data.MainPath, 0);
+					}
+				},
 				"Previous tab": function (Ctrl, pt)
 				{
 					var FV = GetFolderView(Ctrl, pt);

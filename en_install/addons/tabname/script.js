@@ -36,13 +36,14 @@ if (window.Addon == 1) {
 		{
 			var path = api.GetDisplayNameOf(FV, SHGDN_FORPARSING | SHGDN_FORPARSINGEX);
 			if (NewName && NewName.length) {
-				Addons.TabName.db[path] = NewName;
+				FV.Data.MainName = NewName;
+				FV.Data.MainPath = path;
 			} else {
-				delete Addons.TabName.db[path];
+				delete FV.Data.MainName;
+				delete FV.Data.MainPath;
 				NewName = FV.FolderItem.Name;
 			}
 			FV.Title = NewName;
-			Addons.TabName.db[true] = true;
 		}
 	};
 	var xml = OpenXml("tabname.xml", true, false);
@@ -78,24 +79,12 @@ if (window.Addon == 1) {
 
 	AddEvent("GetTabName", function (Ctrl)
 	{
-		var dir = api.GetDisplayNameOf(Ctrl.FolderItem, SHGDN_FORPARSING | SHGDN_FORPARSINGEX);
-		var matchPath = "";
-		for (x in Addons.TabName.db) {
-			if (typeof(dir) == "string" && dir.substr(0, x.length) == x)
-			{
-				if (matchPath.length < x.length){
-					matchPath = x;
-				}
-			}
+		if (Ctrl.Data.MainName && Ctrl.Data.MainName.length)
+		{
+			return Ctrl.Data.MainName;
 		}
-		if (matchPath.length > 0){
-			var retStr = Addons.TabName.db[matchPath];
-			// if (matchPath.length < dir.length) {
-			// 	retStr += ":" + dir.substr(matchPath.length);
-			// }
-			return retStr;
-		}
-		else {
+		else
+		{
 			return false;
 		}
 

@@ -824,6 +824,8 @@ LoadXml = function (filename, nGroup)
 					if (!FV.FilterView) {
 						FV.FilterView = tab.getAttribute("FilterView");
 						FV.Data.Lock = api.LowPart(tab.getAttribute("Lock")) != 0;
+						FV.Data.MainName = tab.getAttribute("MainName");
+						FV.Data.MainPath = tab.getAttribute("MainPath");
 						Lock(TC, i2, false);
 					}
 				}
@@ -879,6 +881,11 @@ SaveXmlTC = function (Ctrl, xml, nGroup)
 			item2.setAttribute("ViewFlags", FV.ViewFlags);
 			item2.setAttribute("FilterView", FV.FilterView);
 			item2.setAttribute("Lock", api.LowPart(FV.Data.Lock));
+			if (FV.Data.MainName && FV.Data.MainName.length)
+			{
+				item2.setAttribute("MainName", FV.Data.MainName);
+				item2.setAttribute("MainPath", FV.Data.MainPath);
+			}
 			var TV = FV.TreeView;
 			item2.setAttribute("Align", TV.Align);
 			item2.setAttribute("Width", TV.Width);
