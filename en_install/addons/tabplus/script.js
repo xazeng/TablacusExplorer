@@ -167,6 +167,9 @@ if (window.Addon == 1) {
 					if (this.opt.Align > 1 && this.opt.Width) {
 						s.push('; text-align: left; max-width: 100%');
 					}
+					if (FV.Data.MainName && FV.Data.MainName.length) {
+						s.push('; color:blue');
+					}
 					var n = "";
 					if (FV.FolderItem) {
 						n = EncodeSC(GetTabName(FV));

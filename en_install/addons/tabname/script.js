@@ -27,6 +27,7 @@ if (window.Addon == 1) {
 				s = InputDialog(s, s);
 				if (s !== null) {
 					Addons.TabName.Set(FV, s);
+					Addons.TabPlus.Style(FV.Parent, FV.Index);
 				}
 			}
 			return S_OK;
