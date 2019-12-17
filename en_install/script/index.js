@@ -2939,9 +2939,13 @@ g_basic =
 				"Go to Main Path": function (Ctrl, pt)
 				{
 					var FV = GetFolderView(Ctrl, pt);
-					if (FV && FV.Data.MainPath && FV.Data.MainPath.length)
+					if (FV)
 					{
-						FV.Navigate(FV.Data.MainPath, 0);
+						if (FV.Data.MainPath && FV.Data.MainPath.length) {
+							FV.Navigate(FV.Data.MainPath, 0);
+						} else {
+							FV.Close();
+						}
 					}
 				},
 				"Previous tab": function (Ctrl, pt)
