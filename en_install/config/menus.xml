@@ -34,13 +34,6 @@
         <Item Name="&amp;Up One Level\t$e" Filter="*" Type="Tabs" Icon="">Up</Item>
         <Item Name="&amp;Refresh\t$3f" Filter="*" Type="Tabs" Icon="">Refresh</Item>
     </View>
-    <Favorites Base="8" Pos="-1">
-        <Item Name="系统 (C:)" Filter="" Type="Open" Icon="" Org="1">C:\</Item>
-        <Item Name="软件 (D:)" Filter="" Type="Open" Icon="">D:\</Item>
-        <Item Name="数据 (E:)" Filter="" Type="Open" Icon="">E:\</Item>
-        <Item Name="bzb (Z:)" Filter="" Type="Open" Icon="">Z:\</Item>
-        <Item Name="pk:publish" Filter="" Type="Open" Icon="">Z:\PK\Programming\server_release</Item>
-    </Favorites>
     <Tools Base="0" Pos="0">
         <Item Name="&amp;Reload Customize" Filter="" Type="Tools" Icon="">Reload Customize</Item>
         <Item Name="" Filter="" Type="Menus" Icon="">Separator</Item>
